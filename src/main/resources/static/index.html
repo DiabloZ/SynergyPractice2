@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Fintech Demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+    <div class="container">
+      <a class="navbar-brand logo" href="#">Fintech Demo</a>
+      <div class="d-flex">
+        <span id="userBadge" class="badge bg-secondary align-self-center badge-auth">Не авторизован</span>
+        <button id="logoutBtn" class="btn btn-danger ms-2 d-none">Выйти</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card p-4 mb-4" id="authCard">
+          <h5>Авторизация</h5>
+          <div class="mb-2">
+            <label for="username" class="form-label">Имя пользователя</label>
+            <input id="username" class="form-control" placeholder="Имя пользователя">
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Пароль</label>
+            <input id="password" type="password" class="form-control" placeholder="Пароль">
+          </div>
+          <div class="d-grid gap-2">
+            <button id="registerBtn" class="btn btn-success">Зарегистрироваться</button>
+            <button id="loginBtn" class="btn btn-primary">Войти</button>
+          </div>
+        </div>
+
+        <div class="card p-4 mb-4 d-none" id="createAccountCard">
+          <h5>Создать счёт</h5>
+          <div class="input-group mb-2">
+            <label for="currency" class="form-label visually-hidden">Валюта</label>
+            <input id="currency" class="form-control" placeholder="RUB">
+            <button id="createAccountBtn" class="btn btn-outline-success">Создать</button>
+          </div>
+        </div>
+
+        <div class="card p-4 d-none" id="transferCard">
+          <h5>Перевод</h5>
+          <div class="mb-2">
+            <label for="fromId" class="form-label">ID счёта отправителя</label>
+            <input id="fromId" class="form-control" placeholder="Ваш ID счёта (пусто для пополнения)">
+          </div>
+          <div class="mb-2">
+            <label for="toId" class="form-label">ID счёта получателя</label>
+            <input id="toId" class="form-control" placeholder="ID счёта получателя">
+          </div>
+          <div class="mb-2">
+            <label for="amount" class="form-label">Сумма</label>
+            <input id="amount" class="form-control" placeholder="Например, 12.34">
+          </div>
+          <div class="d-grid gap-2">
+            <button id="transferBtn" class="btn btn-warning">Перевести</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card p-4 mb-4 d-none" id="accountsCard">
+          <h5>Ваши счета</h5>
+          <ul id="accountsList" class="list-group"></ul>
+        </div>
+
+        <div class="card p-4">
+          <h5>Сообщения</h5>
+          <ul id="messagesList" class="list-group"></ul>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <div id="toastContainer"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
